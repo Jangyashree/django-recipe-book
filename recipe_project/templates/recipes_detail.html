@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Add Recipe | Recipe Book{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 class="mb-4">Add Recipe</h1>
+        <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Recipe Title</label>
+                <input name="title" required type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Recipe Description</label>
+                <textarea name="description" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Recipe Ingredients</label>
+                <textarea name="ingredients" class="form-control" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Recipe Image</label>
+                <input name="image" type="file" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Recipe</button>
+    </form>
+</div>
+
+{% endblock %}

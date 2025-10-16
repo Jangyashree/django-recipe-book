@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <center>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">SLNO.</th>
+                <th scope="col">Recipe Name</th>
+                <th scope="col">Recipe Description</th>
+                <th scope="col">Recipe Ingredients</th>
+                <th scope="col">Image</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for RO in QLRO %}
+            <tr>
+                <td scope="row">1</td>
+                <td>{{RO.title}}</td>
+                <td>{{RO.description}}</td>
+                <td>{{RO.ingredients}}</td>
+                <td>{{RO.image}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>
