@@ -29,3 +29,9 @@ def display_recipe(request):
     d={'QLRO':QLRO}
     
     return render(request, 'display_recipe.html',d)
+
+
+def delete_recipe(request,id):
+    queryset = Recipe.objects.get(id=id)
+    queryset.delete()
+    return redirect('/recipes_detail/')

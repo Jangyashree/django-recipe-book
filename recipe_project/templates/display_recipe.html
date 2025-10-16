@@ -16,19 +16,24 @@
                 <th scope="col">Recipe Description</th>
                 <th scope="col">Recipe Ingredients</th>
                 <th scope="col">Image</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
+           
             <tbody>
             {% for RO in QLRO %}
             <tr>
-                <td scope="row">1</td>
+                <td scope="row">{{forloop.counter}}</td>
                 <td>{{RO.title}}</td>
                 <td>{{RO.description}}</td>
                 <td>{{RO.ingredients}}</td>
                 <td>{{RO.image}}</td>
+                <td><a href="/delete_recipe/{{RO.id}}" class="btn btn-danger">Delete</button>
+                </td>
             </tr>
             {% endfor %}
             </tbody>
+            
         </table>
     </center>
 </body>
