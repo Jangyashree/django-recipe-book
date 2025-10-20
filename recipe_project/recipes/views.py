@@ -20,7 +20,7 @@ def recipes_detail(request):
             image=image,
         )
 
-        messages.success(request, "Recipe added successfully!")  # ✅ added here
+        messages.success(request, "Recipe added successfully!")
         return redirect('/display_recipe/')
         
     recipes = Recipe.objects.all()
@@ -65,7 +65,7 @@ def update_recipe(request, id):
             recipe.image = image
 
         recipe.save()
-        messages.success(request, "Recipe updated successfully!")  # ✅ added here
+        messages.success(request, "Recipe updated successfully!") 
         return redirect('/display_recipe/')
 
 
