@@ -3,7 +3,7 @@ from .models import Recipe
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User
-
+from django.contrib.auth import authenticate,login
 # Create your views here.
 
 def recipes_detail(request):
@@ -76,7 +76,27 @@ def update_recipe(request, id):
 
 
 def login_page(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if not User.objects.filter(username = username).exists():
+            messages.info(request, "Invalid Username") 
+            return redirect('/login/')
+        
+        user = authenticate(username = username,password = password)
+
+        if user is None:
+            messages.error(request, 'Invalid Password')
+            return redirect('/login/') 
+        else:
+            login(request,user)
+            return redirect('/display_recipe/')
+
     return render(request,'login.html')
+
+def logout_page(request):
+    return redirect('/logout/')
 
 def register(request):
     if request.method == "POST":
